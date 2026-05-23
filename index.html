@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium JSON Formatter Tool</title>
+
+  <!-- ================= GOOGLE ADSENSE CORE SCRIPT ================= -->
+  <!-- 
+    TODO: Replace 'ca-pub-0000000000000000' below with your actual 16-digit AdSense Publisher ID.
+    You can find this ID in your AdSense Account under Account > Settings > Account information.
+  -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
+       crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      
+      /* Vibrant Accent Colors */
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.5);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.5);
+      --purple: #a855f7;
+      --purple-glow: rgba(168, 85, 247, 0.5);
+      --danger: #ef4444;
+      --danger-glow: rgba(239, 68, 68, 0.5);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body{
+      background: var(--bg-main);
+      color: var(--text-main);
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated 3D Floating Mesh/Cube Background Accents */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      filter: blur(100px);
+      z-index: -1;
+      animation: morphingCube 12s infinite linear alternate;
+      opacity: 0.15;
+    }
+    body::before {
+      background: var(--primary);
+      top: -10%;
+      left: -10%;
+    }
+    body::after {
+      background: var(--purple);
+      bottom: -10%;
+      right: -10%;
+      animation-delay: -6s;
+    }
+
+    @keyframes morphingCube {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg) scale(1); }
+      50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; transform: rotate(180deg) scale(1.2); }
+      100% { border-radius: 60% 40% 60% 40% / 40% 50% 50% 60%; transform: rotate(360deg) scale(1); }
+    }
+
+    /* Main Page Layout Wrapper */
+    .page-layout {
+      max-width: 1750px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* Middle workspace grid layout */
+    .main-workspace {
+      display: grid;
+      grid-template-columns: 160px 1fr 160px;
+      gap: 25px;
+      align-items: start;
+    }
+
+    /* Core Application Wrapper */
+    .container {
+      width: 100%;
+      min-width: 0;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 30%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      font-size: 16px;
+    }
+
+    /* Editors Panel */
+    .editor-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .textarea-wrapper {
+      position: relative;
+    }
+
+    textarea {
+      width: 100%;
+      height: 520px;
+      background: rgba(10, 15, 26, 0.8);
+      color: #e2e8f0;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      resize: none;
+      outline: none;
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    /* Elegant Glowing Borders on Focus */
+    textarea:focus {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 15px var(--primary-glow), inset 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    /* Dynamic Button Array with 3D Depth */
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    /* Beautiful colorful dynamic style mappings */
+    .format-btn { background: var(--primary); color: white; }
+    .format-btn:hover { background: #2563eb; box-shadow: 0 0 20px var(--primary-glow); }
+
+    .minify-btn { background: var(--success); color: white; }
+    .minify-btn:hover { background: #059669; box-shadow: 0 0 20px var(--success-glow); }
+
+    .copy-btn { background: var(--purple); color: white; }
+    .copy-btn:hover { background: #9333ea; box-shadow: 0 0 20px var(--purple-glow); }
+
+    .clear-btn { background: rgba(255,255,255,0.05); color: #f1f5f9; border: 1px solid var(--border-color); }
+    .clear-btn:hover { background: var(--danger); color: white; border-color: transparent; box-shadow: 0 0 20px var(--danger-glow); }
+
+    /* Interactive error box layout */
+    .error {
+      margin-top: 25px;
+      background: linear-gradient(90deg, rgba(127,29,29,0.9) 0%, rgba(239,68,68,0.15) 100%);
+      border-left: 4px solid var(--danger);
+      color: #fecaca;
+      padding: 16px 20px;
+      border-radius: 12px;
+      display: none;
+      font-size: 14px;
+      font-weight: 500;
+      animation: shakeSlide 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes shakeSlide {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+      40%, 60% { transform: translate3d(4px, 0, 0); }
+    }
+
+    /* Premium Ad Container Blends smoothly into dark themes */
+    .ad-wrapper {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .ad-label {
+      font-size: 9px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .ad-horizontal {
+      width: 100%;
+      min-height: 110px;
+    }
+
+    .ad-sidebar {
+      width: 160px;
+      min-height: 600px;
+      position: sticky;
+      top: 25px;
+    }
+
+    /* Smooth Responsive Breakpoints */
+    @media(max-width: 1250px){
+      .main-workspace {
+        grid-template-columns: 1fr;
+      }
+      .ad-sidebar {
+        display: none; /* Safely hide sidebar skyscrapers on tablet/mobile views */
+      }
+    }
+
+    @media(max-width: 900px){
+      .editor-container {
+        grid-template-columns: 1fr;
+      }
+      textarea {
+        height: 320px;
+      }
+      h1 {
+        font-size: 34px;
+      }
+      .container {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-layout">
+
+  <!-- ================= TOP AD BANNER ================= -->
+  <div class="ad-wrapper ad-horizontal">
+    <div class="ad-label">Advertisement</div>
+    <!-- Replace data-ad-client and data-ad-slot with your true values -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-0000000000000000"
+         data-ad-slot="1111111111"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="main-workspace">
+
+    <!-- ================= LEFT SIDEBAR AD ================= -->
+    <div class="ad-wrapper ad-sidebar">
+      <div class="ad-label">Advertisement</div>
+      <!-- Replace data-ad-client and data-ad-slot with your true values -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:160px;height:600px"
+           data-ad-client="ca-pub-0000000000000000"
+           data-ad-slot="2222222222"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- MAIN APP LAYER -->
+    <div class="container">
+      <h1>JSON Formatter</h1>
+      <p>Clean, compress, evaluate, and transform complex JSON trees instantaneously.</p>
+
+      <div class="editor-container">
+        <div class="textarea-wrapper">
+          <textarea id="input" placeholder='// Paste your raw JSON array or object string here...'></textarea>
+        </div>
+        <div class="textarea-wrapper">
+          <textarea id="output" placeholder='{ "status": "Awaiting beautifully structured data..." }' readonly></textarea>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="format-btn" onclick="formatJSON()">Format Code</button>
+        <button class="minify-btn" onclick="minifyJSON()">Minify Input</button>
+        <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
+        <button class="clear-btn" onclick="clearAll()">Clear Workspace</button>
+      </div>
+
+      <div class="error" id="error"></div>
+    </div>
+
+    <!-- ================= RIGHT SIDEBAR AD ================= -->
+    <div class="ad-wrapper ad-sidebar">
+      <div class="ad-label">Advertisement</div>
+      <!-- Replace data-ad-client and data-ad-slot with your true values -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:160px;height:600px"
+           data-ad-client="ca-pub-0000000000000000"
+           data-ad-slot="3333333333"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+  </div>
+
+  <!-- ================= BOTTOM AD BANNER ================= -->
+  <div class="ad-wrapper ad-horizontal">
+    <div class="ad-label">Advertisement</div>
+    <!-- Replace data-ad-client and data-ad-slot with your true values -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-0000000000000000"
+         data-ad-slot="4444444444"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+</div>
+
+  <script>
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+    const error = document.getElementById("error");
+    let debounceTimer;
+
+    // Listen for input changes (typing or pasting)
+    input.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      
+      // If the user completely clears the input, clear the layout quietly
+      if (!input.value.trim()) {
+        output.value = "";
+        hideError();
+        return;
+      }
+
+      // 150ms delay to make sure pasting is stable and continuous typing isn't interrupted by quick errors
+      debounceTimer = setTimeout(() => {
+        try {
+          const parsed = JSON.parse(input.value);
+          output.value = JSON.stringify(parsed, null, 2);
+          hideError();
+        } catch (err) {
+          showError(err.message);
+        }
+      }, 150);
+    });
+
+    function showError(message){
+      error.style.display = "block";
+      error.innerText = "⚠️ Parsing Error: " + message;
+    }
+
+    function hideError(){
+      error.style.display = "none";
+    }
+
+    function formatJSON(){
+      if(!input.value.trim()) { showError("Input console is empty."); return; }
+      try{
+        const parsed = JSON.parse(input.value);
+        output.value = JSON.stringify(parsed, null, 2);
+        hideError();
+      }catch(err){
+        showError(err.message);
+      }
+    }
+
+    function minifyJSON(){
+      if(!input.value.trim()) { showError("Input console is empty."); return; }
+      try{
+        const parsed = JSON.parse(input.value);
+        output.value = JSON.stringify(parsed);
+        hideError();
+      }catch(err){
+        showError(err.message);
+      }
+    }
+
+    function copyOutput(){
+      if(!output.value){
+        showError("Nothing compiled to copy yet.");
+        return;
+      }
+      navigator.clipboard.writeText(output.value);
+      alert("Successfully copied output stream to clipboard!");
+    }
+
+    function clearAll(){
+      input.value = "";
+      output.value = "";
+      hideError();
+    }
+  </script>
+
+</body>
+</html>
