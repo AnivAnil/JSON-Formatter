@@ -10,8 +10,9 @@
     TODO: Replace 'ca-pub-0000000000000000' below with your actual 16-digit AdSense Publisher ID.
     You can find this ID in your AdSense Account under Account > Settings > Account information.
   -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
-       crossorigin="anonymous"></script>
+  <!-- AdSense core script -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1816153546500274"
+ crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -47,7 +48,7 @@
       position: relative;
     }
 
-    /* Animated 3D Floating Mesh/Cube Background Accents */
+    /* Animated 3D Floating Mesh Background Accents */
     body::before, body::after {
       content: "";
       position: fixed;
@@ -117,7 +118,7 @@
       letter-spacing: -1px;
     }
 
-    p {
+    .subtitle {
       color: var(--text-muted);
       margin-bottom: 35px;
       font-size: 16px;
@@ -151,13 +152,12 @@
       box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    /* Elegant Glowing Borders on Focus */
     textarea:focus {
       border-color: rgba(59, 130, 246, 0.6);
       box-shadow: 0 0 15px var(--primary-glow), inset 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    /* Dynamic Button Array with 3D Depth */
+    /* Dynamic Button Array */
     .buttons {
       margin-top: 25px;
       display: flex;
@@ -186,7 +186,6 @@
       box-shadow: none;
     }
 
-    /* Beautiful colorful dynamic style mappings */
     .format-btn { background: var(--primary); color: white; }
     .format-btn:hover { background: #2563eb; box-shadow: 0 0 20px var(--primary-glow); }
 
@@ -199,7 +198,7 @@
     .clear-btn { background: rgba(255,255,255,0.05); color: #f1f5f9; border: 1px solid var(--border-color); }
     .clear-btn:hover { background: var(--danger); color: white; border-color: transparent; box-shadow: 0 0 20px var(--danger-glow); }
 
-    /* Interactive error box layout */
+    /* Interactive error box */
     .error {
       margin-top: 25px;
       background: linear-gradient(90deg, rgba(127,29,29,0.9) 0%, rgba(239,68,68,0.15) 100%);
@@ -220,7 +219,7 @@
       40%, 60% { transform: translate3d(4px, 0, 0); }
     }
 
-    /* Premium Ad Container Blends smoothly into dark themes */
+    /* Ad Containers */
     .ad-wrapper {
       background: var(--bg-card);
       backdrop-filter: blur(12px);
@@ -256,29 +255,180 @@
       top: 25px;
     }
 
-    /* Smooth Responsive Breakpoints */
-    @media(max-width: 1250px){
-      .main-workspace {
-        grid-template-columns: 1fr;
-      }
-      .ad-sidebar {
-        display: none; /* Safely hide sidebar skyscrapers on tablet/mobile views */
-      }
+    /* Educational Content Section for AdSense Value Requirement */
+    .info-section {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-color);
     }
 
+    .info-section h2 {
+      font-size: 24px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .info-section p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .info-section ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: var(--text-muted);
+    }
+
+    .info-section li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    /* Modals Layout (Privacy, Terms, Contact) */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(5, 8, 16, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid var(--border-color);
+      padding: 40px;
+      border-radius: 24px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-card h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 30%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .modal-card h3 {
+      font-size: 18px;
+      margin: 20px 0 10px 0;
+      color: #f1f5f9;
+    }
+
+    .modal-card p, .modal-card li {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* Direct Connect Channels Style block */
+    .direct-channels {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      border-radius: 14px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .direct-channels p {
+      margin-bottom: 0 !important;
+      font-size: 16px !important;
+      color: #e2e8f0 !important;
+    }
+
+    .direct-channels a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: color 0.2s;
+    }
+    .direct-channels a:hover {
+      color: #60a5fa;
+      text-decoration: underline;
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+
+    .close-modal-btn:hover {
+      background: var(--danger);
+      border-color: transparent;
+    }
+
+    /* Clean Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #475569;
+      font-size: 13px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 10px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive Design */
+    @media(max-width: 1250px){
+      .main-workspace { grid-template-columns: 1fr; }
+      .ad-sidebar { display: none; }
+    }
     @media(max-width: 900px){
-      .editor-container {
-        grid-template-columns: 1fr;
-      }
-      textarea {
-        height: 320px;
-      }
-      h1 {
-        font-size: 34px;
-      }
-      .container {
-        padding: 24px;
-      }
+      .editor-container { grid-template-columns: 1fr; }
+      textarea { height: 320px; }
+      h1 { font-size: 34px; }
+      .container { padding: 24px; }
     }
   </style>
 </head>
@@ -289,7 +439,6 @@
   <!-- ================= TOP AD BANNER ================= -->
   <div class="ad-wrapper ad-horizontal">
     <div class="ad-label">Advertisement</div>
-    <!-- Replace data-ad-client and data-ad-slot with your true values -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-0000000000000000"
@@ -304,7 +453,6 @@
     <!-- ================= LEFT SIDEBAR AD ================= -->
     <div class="ad-wrapper ad-sidebar">
       <div class="ad-label">Advertisement</div>
-      <!-- Replace data-ad-client and data-ad-slot with your true values -->
       <ins class="adsbygoogle"
            style="display:inline-block;width:160px;height:600px"
            data-ad-client="ca-pub-0000000000000000"
@@ -315,7 +463,7 @@
     <!-- MAIN APP LAYER -->
     <div class="container">
       <h1>JSON Formatter</h1>
-      <p>Clean, compress, evaluate, and transform complex JSON trees instantaneously.</p>
+      <p class="subtitle">Clean, compress, evaluate, and transform complex JSON trees instantaneously.</p>
 
       <div class="editor-container">
         <div class="textarea-wrapper">
@@ -329,17 +477,43 @@
       <div class="buttons">
         <button class="format-btn" onclick="formatJSON()">Format Code</button>
         <button class="minify-btn" onclick="minifyJSON()">Minify Input</button>
-        <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
+        <button class="copy-btn" id="copyBtn" onclick="copyOutput()">Copy Output</button>
         <button class="clear-btn" onclick="clearAll()">Clear Workspace</button>
       </div>
 
       <div class="error" id="error"></div>
+
+      <!-- ================= VALUABLE SEO TEXT SECTION FOR ADSENSE APPROVAL ================= -->
+      <section class="info-section">
+        <h2>What is JSON and Why Do We Use It?</h2>
+        <p>JSON (JavaScript Object Notation) is a lightweight, text-based format used globally for storing and exchanging data structures. It is completely language-independent but uses conventions familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, and Python. These properties make JSON an ideal data-interchange language for web apps, APIs, and configuration files.</p>
+        
+        <h2>Why Use an Online JSON Formatter and Minifier?</h2>
+        <p>When machines exchange JSON logs or payloads across databases, they typically eliminate all whitespaces, tabs, and line breaks to preserve bandwidth and cut network transfer times. While highly efficient for backend environments, minified code remains completely unreadable for developer operations, troubleshooting, and auditing loops.</p>
+        <p>Our interactive JSON parser acts as a rapid pipeline to transition between production-ready minified configurations and human-readable, deeply nested structures instantly:</p>
+        <ul>
+          <li><strong>Format Code:</strong> Injects clean indentation logic and structurally balanced line breaks back into your nested arrays or objects.</li>
+          <li><strong>Minify Input:</strong> Strips down all unnecessary white space footprints into a single dense string line, perfect for lightweight production configurations.</li>
+          <li><strong>Real-time Syntax Validations:</strong> Catches missing commas, trailing tags, unquoted property map names, and mismatched bracket structures before your application code breaks.</li>
+        </ul>
+
+        <h2>Is Processing Data with This Tool Safe?</h2>
+        <p>Yes. Security and user privacy remain critical focal points of our architectural layout. Unlike typical utility configurations that upload string parameters to distant backends for handling, our Premium JSON Formatter runs natively inside your local web browser sandbox container. No raw text streams, sensitive payloads, token keys, or data configurations ever leave your computer machine setup or touch external hosting networks.</p>
+
+        <h2>Common Syntax Exceptions & Errors</h2>
+        <p>If the compiler workspace alerts you to syntax issues during evaluation loops, quickly inspect your array tree for these regular rule violations:</p>
+        <ul>
+          <li><strong>Unquoted Properties:</strong> Every single property name identifier must be firmly bound inside double-quotes (e.g., use <code>"id": 101</code> instead of <code>id: 101</code>).</li>
+          <li><strong>Single Quotes vs Double Quotes:</strong> The valid JSON architecture blueprint strictly requires double quotes for values and property labels alike. Single quotes are treated as invalid symbols.</li>
+          <li><strong>Trailing Commas:</strong> Ensure the absolute final property entry or value sequence inside any brace array structure contains no trailing comma separator.</li>
+        </ul>
+      </section>
+
     </div>
 
     <!-- ================= RIGHT SIDEBAR AD ================= -->
     <div class="ad-wrapper ad-sidebar">
       <div class="ad-label">Advertisement</div>
-      <!-- Replace data-ad-client and data-ad-slot with your true values -->
       <ins class="adsbygoogle"
            style="display:inline-block;width:160px;height:600px"
            data-ad-client="ca-pub-0000000000000000"
@@ -352,7 +526,6 @@
   <!-- ================= BOTTOM AD BANNER ================= -->
   <div class="ad-wrapper ad-horizontal">
     <div class="ad-label">Advertisement</div>
-    <!-- Replace data-ad-client and data-ad-slot with your true values -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-0000000000000000"
@@ -362,26 +535,83 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
+  <!-- ================= FOOTER LINKS ================= -->
+  <footer>
+    <p>&copy; 2026 Premium JSON Formatter Tool. All Rights Reserved.</p>
+    <p style="margin-top: 10px;">
+      <a onclick="openModal('privacyModal')">Privacy Policy</a> | 
+      <a onclick="openModal('termsModal')">Terms of Service</a> | 
+      <a onclick="openModal('contactModal')">Contact Us</a>
+    </p>
+  </footer>
+
 </div>
 
+<!-- ================= PRIVACY POLICY MODAL ================= -->
+<div id="privacyModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal-card">
+    <div class="close-modal-btn" onclick="closeModal('privacyModal')">&times;</div>
+    <h2>Privacy Policy</h2>
+    <p><strong>Effective Date:</strong> May 24, 2026</p>
+    <p>Your privacy is important to us. This Privacy Policy document outlines the types of personal information received and collected by our Premium JSON Formatter Tool and how it is protected.</p>
+    <h3>1. Local Browser Execution</h3>
+    <p>Our tool processes all input code natively within your web browser sandbox. Any code snippets, configuration text, JSON objects, or payloads you format or minify remain strictly internal to your local machine execution state and are never transferred, leaked, or logged to our servers.</p>
+    <h3>2. Google AdSense & Third-Party Cookies</h3>
+    <p>We use third-party advertising companies to serve ads when you visit our website. These companies (including Google via the AdSense network) may use cookies, web beacons, or DART identifiers to serve personalized ads based on your visits to this and other websites across the internet.</p>
+    <p>You can choose to disable or selectively turn off our cookies or third-party cookies in your browser settings or by managing preferences in security suites.</p>
+  </div>
+</div>
+
+<!-- ================= TERMS OF SERVICE MODAL ================= -->
+<div id="termsModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal-card">
+    <div class="close-modal-btn" onclick="closeModal('termsModal')">&times;</div>
+    <h2>Terms of Service</h2>
+    <p><strong>Last Updated:</strong> May 24, 2026</p>
+    <p>By using our Premium JSON Formatter Tool, you agree to comply with and be bound by the following terms and conditions of use.</p>
+    <h3>1. Use of the Utility</h3>
+    <p>This formatting utility is provided free of charge for developer operations, personal testing, commercial debugging, and educational purposes. You agree not to attempt to disrupt the performance of this web application layer, reverse engineer styling layouts, or abuse resource parameters.</p>
+    <h3>2. Disclaimer of Warranties</h3>
+    <p>This system framework is provided on an "as-is" and "as-available" blueprint baseline without any warranty streams or structural liabilities. We do not guarantee that the format scripts will catch every single data edge case or operate entirely error-free.</p>
+  </div>
+</div>
+
+<!-- ================= CONTACT US MODAL ================= -->
+<div id="contactModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal-card">
+    <div class="close-modal-btn" onclick="closeModal('contactModal')">&times;</div>
+    <h2>Contact Us</h2>
+    <p>Have questions, feature requests, or found a structural bug? Reach out directly through our administrator email address below.</p>
+    
+    <!-- Direct Email Channel setup -->
+    <div class="direct-channels">
+      <p><strong>Email Support:</strong></p>
+      <p style="margin-top: 5px !important;"><a href="mailto:anilsouth65@gmail.com">anilsouth65@gmail.com</a></p>
+       <p><strong>Contact:</strong></p>
+            <p style="margin-top: 5px !important;"><a href="mailto:anilsouth65@gmail.com">+91 9514391536</a></p>
+
+    </div>
+  </div>
+</div>
+
+  <!-- ================= APPLICATION SCRIPTS ================= -->
   <script>
     const input = document.getElementById("input");
     const output = document.getElementById("output");
     const error = document.getElementById("error");
+    const copyBtn = document.getElementById("copyBtn");
     let debounceTimer;
 
     // Listen for input changes (typing or pasting)
     input.addEventListener("input", () => {
       clearTimeout(debounceTimer);
       
-      // If the user completely clears the input, clear the layout quietly
       if (!input.value.trim()) {
         output.value = "";
         hideError();
         return;
       }
 
-      // 150ms delay to make sure pasting is stable and continuous typing isn't interrupted by quick errors
       debounceTimer = setTimeout(() => {
         try {
           const parsed = JSON.parse(input.value);
@@ -429,14 +659,39 @@
         showError("Nothing compiled to copy yet.");
         return;
       }
-      navigator.clipboard.writeText(output.value);
-      alert("Successfully copied output stream to clipboard!");
+      navigator.clipboard.writeText(output.value).then(() => {
+        const originalText = copyBtn.innerText;
+        copyBtn.innerText = "Copied! ✓";
+        copyBtn.style.background = "var(--success)";
+        
+        setTimeout(() => {
+          copyBtn.innerText = originalText;
+          copyBtn.style.background = "var(--purple)";
+        }, 2000);
+      }).catch(err => {
+        showError("Failed to write to clipboard: " + err);
+      });
     }
 
     function clearAll(){
       input.value = "";
       output.value = "";
       hideError();
+    }
+
+    /* Modal Management Logic */
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('active');
+      }
     }
   </script>
 
