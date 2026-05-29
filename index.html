@@ -3,21 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Premium JSON Formatter Tool</title>
+  <title>Premium JSON Formatter Tool - Free & Secure Online</title>
+  <meta name="description" content="Clean, compress, evaluate, and transform complex JSON structures instantaneously. 100% free, private, and secure client-side developer toolbox.">
 
-  <!-- ================= GOOGLE ADSENSE CORE SCRIPT ================= -->
-  <!-- 
-    TODO: Replace 'ca-pub-0000000000000000' below with your actual 16-digit AdSense Publisher ID.
-    You can find this ID in your AdSense Account under Account > Settings > Account information.
-  -->
-<<<<<<< HEAD
-  <!-- AdSense core script -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1816153546500274"
- crossorigin="anonymous"></script>
-=======
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1816153546500274"
-     crossorigin="anonymous"></script>
->>>>>>> 04fcf4aec94509c1d5e51f6f57b820322f839f1a
+         crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -49,8 +39,10 @@
       background: var(--bg-main);
       color: var(--text-main);
       padding: 20px;
+      padding-bottom: 160px; /* Space for fixed navigation dock */
       overflow-x: hidden;
       position: relative;
+      min-height: 100vh;
     }
 
     /* Animated 3D Floating Mesh Background Accents */
@@ -412,16 +404,59 @@
       margin-top: 20px;
     }
 
-    footer a {
+    footer p a {
       color: var(--text-muted);
       text-decoration: none;
       margin: 0 10px;
       cursor: pointer;
       font-weight: 500;
+      transition: color 0.2s;
     }
 
-    footer a:hover {
+    footer p a:hover {
       color: var(--primary);
+    }
+
+    /* ================== DOCK NAVIGATION BAR ================== */
+    .nav {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 12, 30, 0.4);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50px;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+      z-index: 1000;
+    }
+
+    .nav-item {
+      padding: 12px 24px;
+      color: #94a3b8;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-item:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     /* Responsive Design */
@@ -441,12 +476,11 @@
 
 <div class="page-layout">
 
-  <!-- ================= TOP AD BANNER ================= -->
   <div class="ad-wrapper ad-horizontal">
     <div class="ad-label">Advertisement</div>
     <ins class="adsbygoogle"
          style="display:block"
-         data-ad-client="ca-pub-0000000000000000"
+         data-ad-client="ca-pub-1816153546500274"
          data-ad-slot="1111111111"
          data-ad-format="horizontal"
          data-full-width-responsive="true"></ins>
@@ -455,17 +489,15 @@
 
   <div class="main-workspace">
 
-    <!-- ================= LEFT SIDEBAR AD ================= -->
     <div class="ad-wrapper ad-sidebar">
       <div class="ad-label">Advertisement</div>
       <ins class="adsbygoogle"
            style="display:inline-block;width:160px;height:600px"
-           data-ad-client="ca-pub-0000000000000000"
+           data-ad-client="ca-pub-1816153546500274"
            data-ad-slot="2222222222"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <!-- MAIN APP LAYER -->
     <div class="container">
       <h1>JSON Formatter</h1>
       <p class="subtitle">Clean, compress, evaluate, and transform complex JSON trees instantaneously.</p>
@@ -488,7 +520,6 @@
 
       <div class="error" id="error"></div>
 
-      <!-- ================= VALUABLE SEO TEXT SECTION FOR ADSENSE APPROVAL ================= -->
       <section class="info-section">
         <h2>What is JSON and Why Do We Use It?</h2>
         <p>JSON (JavaScript Object Notation) is a lightweight, text-based format used globally for storing and exchanging data structures. It is completely language-independent but uses conventions familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, and Python. These properties make JSON an ideal data-interchange language for web apps, APIs, and configuration files.</p>
@@ -516,31 +547,28 @@
 
     </div>
 
-    <!-- ================= RIGHT SIDEBAR AD ================= -->
     <div class="ad-wrapper ad-sidebar">
       <div class="ad-label">Advertisement</div>
       <ins class="adsbygoogle"
            style="display:inline-block;width:160px;height:600px"
-           data-ad-client="ca-pub-0000000000000000"
+           data-ad-client="ca-pub-1816153546500274"
            data-ad-slot="3333333333"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
   </div>
 
-  <!-- ================= BOTTOM AD BANNER ================= -->
   <div class="ad-wrapper ad-horizontal">
     <div class="ad-label">Advertisement</div>
     <ins class="adsbygoogle"
          style="display:block"
-         data-ad-client="ca-pub-0000000000000000"
+         data-ad-client="ca-pub-1816153546500274"
          data-ad-slot="4444444444"
          data-ad-format="horizontal"
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- ================= FOOTER LINKS ================= -->
   <footer>
     <p>&copy; 2026 Premium JSON Formatter Tool. All Rights Reserved.</p>
     <p style="margin-top: 10px;">
@@ -552,12 +580,18 @@
 
 </div>
 
-<!-- ================= PRIVACY POLICY MODAL ================= -->
+<nav class="nav">
+  <a class="nav-item active" href="#">🏠 JSON Formatter</a>
+  <a class="nav-item" onclick="openModal('privacyModal')">🔒 Privacy Policy</a>
+  <a class="nav-item" onclick="openModal('termsModal')">⚖️ Terms</a>
+  <a class="nav-item" onclick="openModal('contactModal')">📞 Contact Us</a>
+</nav>
+
 <div id="privacyModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
   <div class="modal-card">
     <div class="close-modal-btn" onclick="closeModal('privacyModal')">&times;</div>
     <h2>Privacy Policy</h2>
-    <p><strong>Effective Date:</strong> May 24, 2026</p>
+    <p><strong>Effective Date:</strong> May 29, 2026</p>
     <p>Your privacy is important to us. This Privacy Policy document outlines the types of personal information received and collected by our Premium JSON Formatter Tool and how it is protected.</p>
     <h3>1. Local Browser Execution</h3>
     <p>Our tool processes all input code natively within your web browser sandbox. Any code snippets, configuration text, JSON objects, or payloads you format or minify remain strictly internal to your local machine execution state and are never transferred, leaked, or logged to our servers.</p>
@@ -567,12 +601,11 @@
   </div>
 </div>
 
-<!-- ================= TERMS OF SERVICE MODAL ================= -->
 <div id="termsModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
   <div class="modal-card">
     <div class="close-modal-btn" onclick="closeModal('termsModal')">&times;</div>
     <h2>Terms of Service</h2>
-    <p><strong>Last Updated:</strong> May 24, 2026</p>
+    <p><strong>Last Updated:</strong> May 29, 2026</p>
     <p>By using our Premium JSON Formatter Tool, you agree to comply with and be bound by the following terms and conditions of use.</p>
     <h3>1. Use of the Utility</h3>
     <p>This formatting utility is provided free of charge for developer operations, personal testing, commercial debugging, and educational purposes. You agree not to attempt to disrupt the performance of this web application layer, reverse engineer styling layouts, or abuse resource parameters.</p>
@@ -581,25 +614,21 @@
   </div>
 </div>
 
-<!-- ================= CONTACT US MODAL ================= -->
 <div id="contactModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
   <div class="modal-card">
     <div class="close-modal-btn" onclick="closeModal('contactModal')">&times;</div>
     <h2>Contact Us</h2>
     <p>Have questions, feature requests, or found a structural bug? Reach out directly through our administrator email address below.</p>
     
-    <!-- Direct Email Channel setup -->
     <div class="direct-channels">
       <p><strong>Email Support:</strong></p>
       <p style="margin-top: 5px !important;"><a href="mailto:anilsouth65@gmail.com">anilsouth65@gmail.com</a></p>
-       <p><strong>Contact:</strong></p>
-            <p style="margin-top: 5px !important;"><a href="mailto:anilsouth65@gmail.com">+91 9514391536</a></p>
-
+      <p><strong>Contact:</strong></p>
+      <p style="margin-top: 5px !important;"><a href="tel:+919514391536">+91 9514391536</a></p>
     </div>
   </div>
 </div>
 
-  <!-- ================= APPLICATION SCRIPTS ================= -->
   <script>
     const input = document.getElementById("input");
     const output = document.getElementById("output");
